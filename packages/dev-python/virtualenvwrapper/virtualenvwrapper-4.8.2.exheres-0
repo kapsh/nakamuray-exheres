@@ -1,7 +1,7 @@
 # Copyright 2010 NAKAMURA Yoshitaka
 # Distributed under the terms of the GNU General Public License v2
 
-require distutils [ python_dep="2.6" ] pypi
+require pypi setup-py [ import=setuptools ]
 
 SUMMARY="Enhancements to virtualenv"
 DESCRIPTION="
@@ -10,7 +10,7 @@ wrappers for creating and deleting virtual environments and otherwise managing y
 workflow, making it easier to work on more than one project at a time without introducing conflicts
 in their dependencies.
 "
-HOMEPAGE="http://www.doughellmann.com/docs/virtualenvwrapper/"
+HOMEPAGE="https://virtualenvwrapper.readthedocs.io/"
 
 LICENCES="MIT"
 SLOT="0"
@@ -24,4 +24,7 @@ DEPENDENCIES="
         dev-python/virtualenv-clone
 "
 
+test_one_multibuild() {
+    SHELL=/bin/bash edo tests/run_tests ${PWD}
+}
 
